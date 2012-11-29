@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Stock - HQ Interface - CEG Hypermarket 13</title>
+		
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+		<script src="js/restock.js"></script>
+		<script src="js/sync.js"></script>
+		<script src="js/bootstrap-modal.js"></script>
+		<script src="js/bootstrap-dropdown.js"></script>
+		
+		<script src="js/editablegrid.js"></script>
+		<script src="js/editablegrid_renderers.js" ></script>
+		<script src="js/editablegrid_editors.js" ></script>
+		<script src="js/editablegrid_validators.js" ></script>
+		<script src="js/editablegrid_utils.js" ></script>
+		<script src="js/jquery.blockUI.js"></script>
+		<link rel="stylesheet" href="css/editablegrid.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+
+	</head>
+	
+	<body>
+		<div class="container">	
+			<div class="hero-unit">
+				<h1>Hypermarket 13</h1>
+			</div>
+			<div class="navbar navbar-inverse">
+				<div class="navbar-inner ">
+					<ul class="nav">
+					  <li id="product-link"><a href="index.html">Products</a></li>
+					  <li id="display-link"><a href="pricedisplay.html">Price display</a></li>
+					  <li id="stock-link" class="active"><a href="stock.html">Stock</a></li>
+					  <!--<li id="inventory-link"><a href="inventory.html">Inventory</a></li>-->
+					  <li id="statistic-link"><a href="transaction.html">Transactions</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a onclick="priceSync();" style="cursor: pointer;" title="Sync Pricing">Recompute Selling Price</a></li>
+						<li class="dropdown" id="sync-link">
+							<a id="sync-tab" class="dropdown-toggle" data-toggle="dropdown" href="#">HQ SYNC<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:100px;">
+								<li><a onclick="inventorySync();" style="cursor: pointer;" title="Sync inventory">Inventory</a></li>
+								<li><a onclick="transactionSync();" style="cursor: pointer;" title="Sync transaction">Transaction</a></li>
+								<li><a onclick="requestSync();" style="cursor: pointer;" title="Sync request">Update HQ request</a></li>
+								<!--<li><a onclick="revenueSync();" style="cursor: pointer;" title="Sync Revenue">Revenue</a></li>-->
+							</ul>
+						</li>
+					</ul>			
+				</div>
+			</div>
+
+			<div id="stockcontent">
+
+				<div id="restockDetails" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="restockDetailsLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="restockDetailsLabel">Restock details on <span id="restock-date"></span></h3>
+					</div>
+					<div class="modal-body">
+						
+						<div id="restockdetailstablecontent"></div>
+						<div class="paginator2"></div><br />
+						<button id="receive-all" class="btn">Receive all</button>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button id ="confirm-checked-product" class="btn btn-primary">Confirm</button>
+					</div>
+				</div>
+				<label for="filter"><br/>Filter :</label>
+				<input class="span4" type="text" id="filter" placeholder="Filter by outlet name or request date"/>				
+				<div id="restocktablecontent"></div>
+				<div id="paginator"></div>
+			</div>
+			<hr />
+			<footer>
+			<p>CG3002 Hypermarket Project AY12/13 Semester 1</p>
+			</footer>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Product - Shop Interface - CEG Hypermarket 13</title>
+		<script src="js/jquery.js"></script>
+
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+		<script src="js/bootstrap-modal.js"></script>
+		<script src="js/bootstrap-dropdown.js"></script>
+		<script src="js/editablegrid.js"></script>
+		<script src="js/editablegrid_renderers.js" ></script>
+		<script src="js/editablegrid_editors.js" ></script>
+		<script src="js/editablegrid_validators.js" ></script>
+		<script src="js/editablegrid_utils.js" ></script>
+		<script src="js/jquery.blockUI.js"></script>
+		<script src="js/product.js"></script>
+		<script src="js/sync.js"></script>
+		
+		<link rel="stylesheet" href="css/editablegrid.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">		
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+
+	</head>
+	
+	<body>
+		<div class="container">	
+			<div class="hero-unit">
+				<h1>Shop Hypermarket 13</h1>
+			</div>
+			<div class="navbar navbar-inverse">
+				<div class="navbar-inner ">
+					<ul class="nav">
+					  <li id="product-link" class="active"><a href="index.html">Products</a></li>
+					  <li id="display-link"><a href="pricedisplay.html">Price display</a></li>
+					  <li id="stock-link"><a href="stock.html">Stock</a></li>
+					  <!--<li id="inventory-link"><a href="inventory.html">Inventory</a></li>-->
+					  <li id="statistic-link"><a href="transaction.html">Transactions</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a onclick="priceSync();" style="cursor: pointer;" title="Sync Pricing">Recompute Selling Price</a></li>
+						<li class="dropdown" id="sync-link">
+							<a id="sync-tab" class="dropdown-toggle" data-toggle="dropdown" href="#">HQ SYNC<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:100px;">
+								<li><a onclick="inventorySync();" style="cursor: pointer;" title="Sync inventory">Inventory</a></li>
+								<li><a onclick="transactionSync();" style="cursor: pointer;" title="Sync transaction">Transaction</a></li>
+								<li><a onclick="requestSync();" style="cursor: pointer;" title="Sync request">Update HQ request</a></li>
+								<!--<li><a onclick="revenueSync();" style="cursor: pointer;" title="Sync Revenue">Revenue</a></li>-->
+							</ul>
+						</li>
+					</ul>					
+				</div>
+			</div>
+			<div id ="productcontent">
+
+				<label for="filter"><br/>Filter :</label>
+				<input class="span4" type="text" id="filter" placeholder="Enter product barcodes or any of its details"/>
+
+				<div id="producttablecontent" align="center"></div>
+				<!-- Paginator control -->
+				<div id="paginator"></div>
+			</div>
+
+			<hr />
+			<footer>
+			<p>CG3002 Hypermarket Project AY12/13 Semester 1</p>
+			</footer>
+		</div>
+	</body>
+
+</html>
